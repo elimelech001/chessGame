@@ -12,7 +12,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import PlayerInfo from "./playerInfo";
 // import { onUpdate } from "firebase-functions/v1/remoteConfig";
 
-
+//eibjeotiboe
 function PlayBoard() {
     const navigate = useNavigate()
     const { link } = useParams()
