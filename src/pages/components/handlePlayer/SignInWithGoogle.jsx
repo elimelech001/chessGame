@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 import { getDatabase, ref, child, push, update } from "firebase/database";
     import Cookies from "js-cookie";
-import { app } from "../../config/fireBaseConfig";
+import { app } from "../../../config/fireBaseConfig";
+// import { app } from "../../config/fireBaseConfig";
+
 const provider = new GoogleAuthProvider();
 
 const auth = getAuth(app);

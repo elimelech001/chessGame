@@ -3,9 +3,8 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/components/homePage";
 import PlayBoard from "./pages/components/playBoard";
-import LogIn from "./pages/handlePlayer/login";
 import PickGame from "./pages/components/handlePlayer/pickGame";
-import SignInWithGoogle from "./pages/handlePlayer/SignInWithGoogle";
+import SignInWithGoogle from "./pages/components/handlePlayer/SignInWithGoogle";
 
 function App() {
     const [link, getLink] = useState(null);

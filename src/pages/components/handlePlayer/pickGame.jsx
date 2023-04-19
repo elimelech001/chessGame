@@ -3,9 +3,10 @@ import { useRef } from "react";
 import { getDatabase, ref, child, push, set, update, get } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import Cookies from "js-cookie";
-import { app } from "../../../config/fireBaseConfig";
 import board from "../../helpFunctions/insertCharachters";
 import { useNavigate } from "react-router-dom";
+import { app } from "../../../config/fireBaseConfig";
+
 const db = getDatabase(app);
 const auth = getAuth();
 const dbRef = ref(getDatabase());

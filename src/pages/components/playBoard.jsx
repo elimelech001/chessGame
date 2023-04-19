@@ -1,9 +1,9 @@
 // import BuildBoard from "./createBoard";
 
 import React, { useEffect, useState } from "react";
-import { checKing, checkMate, id } from "../conditions/check";
+import { checKing, checkMate, id } from "../gameConditions/check";
 import _ from "lodash";
-import { Allcondintions } from "../conditions/allConditions";
+import { Allcondintions } from "../gameConditions/allConditions";
 import toggleColor from "../helpFunctions/toggleColor";
 import BuildBoard from "./buildBoard";
 import { getAuth } from "firebase/auth";
