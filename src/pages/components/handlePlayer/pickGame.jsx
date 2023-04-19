@@ -3,8 +3,8 @@ import { useRef } from "react";
 import { getDatabase, ref, child, push, set, update, get } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import Cookies from "js-cookie";
-import { app } from "../../fireBaseConfig";
-import board from "../insertCharachters";
+import { app } from "../../../config/fireBaseConfig";
+import board from "../../helpFunctions/insertCharachters";
 import { useNavigate } from "react-router-dom";
 const db = getDatabase(app);
 const auth = getAuth();
@@ -46,6 +46,7 @@ const PickGame = ({ getLink }) => {
         }
         get(child(dbRef, `Games/${link}`)).then((snapshot) => {
             if (snapshot.exists()) {
+                console.log(snapshot.val());
                 const user = snapshot.val().players[auth.currentUser.uid]
                
                 if(!user){

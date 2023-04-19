@@ -1,4 +1,0 @@
-save the uid in cookies 
-create a new link
-create board according to link
-

@@ -1,15 +1,16 @@
 // import BuildBoard from "./createBoard";
 
 import React, { useEffect, useState } from "react";
-import { checKing, checkMate, id } from "./conditions/check";
+import { checKing, checkMate, id } from "../conditions/check";
 import _ from "lodash";
-import { Allcondintions } from "./conditions/allConditions";
-import toggleColor from "./helpFunctions/toggleColor";
+import { Allcondintions } from "../conditions/allConditions";
+import toggleColor from "../helpFunctions/toggleColor";
 import BuildBoard from "./buildBoard";
 import { getAuth } from "firebase/auth";
 import { getDatabase, ref, child, get, update, onValue } from "firebase/database";
 import { useNavigate, useParams } from "react-router-dom";
 import PlayerInfo from "./playerInfo";
+import playBoard from "../helpFunctions/insertCharachters";
 // import { onUpdate } from "firebase-functions/v1/remoteConfig";
 
 //eibjeotiboe
@@ -17,30 +18,32 @@ function PlayBoard() {
     const navigate = useNavigate()
     const { link } = useParams()
     const auth = getAuth();
-    const [board, setBoard] = useState();
+    const [board, setBoard] = useState(playBoard);
     const [playerInfo, setPlayerInfo] = useState({});
     const [pos, setXpos] = useState(null);
     const [color, setColor] = useState();
     const [cliked, setClicked] = useState();
     const dbRef = ref(getDatabase());
+
     useEffect(() => {
         if (!auth.currentUser) {
             // navigate('/signInWithGoogle')
         }
-        onValue(child(dbRef, `Games/${link}`)).then((snapshot) => {
+        
+        get(child(dbRef, `Games/${link}`)).then((snapshot) => {
             if (snapshot.exists()) {
-                setPlayerInfo(snapshot.val().players)
-                setBoard(snapshot.val().board);
+                console.log(snapshot.val());
                 setColor(snapshot.val().turn);
+                setBoard(snapshot.val().board);
+                setPlayerInfo(snapshot.val().players)
             } else {
-                // navigate('/pickGame')
+                 // navigate('/pickGame')
             }
         }).catch((error) => {
             console.error(error);
-            // navigate('/pickGame')
+            //     navigate('/pickGame')
         });
-        console.log(playerInfo);
-    },[])
+    }, [])
     const getStyle = (y, xIndex, yIndex) => {
         const turn = y && y.color === color;
         return { boxShadow: turn ? "0px 0px 5px #fff" : "0 0 0 0" };
@@ -80,7 +83,7 @@ function PlayBoard() {
                         console.log("game over");
                     }
                 }
-               
+
                 const dbRef = ref(getDatabase());
                 const updates = {};
                 updates[`Games/${link}/board`] = copyBoard

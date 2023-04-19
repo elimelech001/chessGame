@@ -1,11 +1,11 @@
 import "bootstrap/dist/css/bootstrap.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import HomePage from "./homePage";
-import PlayBoard from "./pages/playBoard";
-import LogIn from "./pages/player/login";
-import PickGame from "./pages/player/pickGame";
-import SignInWithGoogle from "./pages/player/SignInWithGoogle";
+import HomePage from "./pages/components/homePage";
+import PlayBoard from "./pages/components/playBoard";
+import LogIn from "./pages/handlePlayer/login";
+import PickGame from "./pages/components/handlePlayer/pickGame";
+import SignInWithGoogle from "./pages/handlePlayer/SignInWithGoogle";
 
 function App() {
     const [link, getLink] = useState(null);

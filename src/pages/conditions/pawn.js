@@ -1,4 +1,4 @@
-import { boardColor } from "../insertCharachters";
+import { boardColor } from "../helpFunctions/insertCharachters";
 
 export default function pawn(xPos, yPos, Xtarg, Ytarg, board, color) {
     let steps = pawnSteps(xPos, yPos, Xtarg, Ytarg, board, color);

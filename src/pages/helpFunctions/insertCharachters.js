@@ -1,6 +1,6 @@
-import Charachters from "./charracters";
-import  doubleArr  from "./helpFunctions/doubleArr";
-import img from "./png";
+// import Charachters from "./charracters";
+import  doubleArr  from "./doubleArr";
+import img from "../png";
 
 
 let board =  doubleArr();

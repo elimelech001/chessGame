@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import board from "../insertCharachters";
+import board from "../helpFunctions/insertCharachters";
 
 const dbBoard = (user) => {
     const db = getDatabase();
